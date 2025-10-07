@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Home — VM Portal{% endblock %}
+{% block content %}
+<div class="home hero">
+  <div class="hero-inner">
+    <h1>VM Access Portal</h1>
+    <p>Securely access and manage virtual machines. Choose your login type to continue.</p>
+    <div class="hero-actions">
+      <a href="/login?type=user" class="btn primary">User Login</a>
+      <a href="/login?type=admin" class="btn">Admin Login</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

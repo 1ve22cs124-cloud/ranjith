@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}VM Portal{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">VM Portal</div>
+        <nav class="nav">
+          <a href="/">Home</a>
+        {% if session.get('user') %}
+        <a href="/">Dashboard</a>
+        {% if is_admin_func is defined and is_admin_func %}
+          {% if is_admin_func() %}<a href="/admin">Admin</a>{% endif %}
+        {% else %}
+          {% if is_admin %}<a href="/admin">Admin</a>{% endif %}
+        {% endif %}
+        <a href="/logout">Logout</a>
+          {% else %}
+            <a href="/login?type=user">User Login</a>
+            <a href="/login?type=admin">Admin Login</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© {{ (2025) }} VM Portal</div>
+        <div class="foot-links">
+          <a href="#">Help</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

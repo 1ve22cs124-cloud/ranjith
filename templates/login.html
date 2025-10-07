@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Login — VM Portal{% endblock %}
+{% block content %}
+<div class="login-wrap">
+  <div class="login-card card">
+    <h2>{{ 'Admin' if login_type=='admin' else 'User' }} Login</h2>
+    <div class="hint">Sign in to access the VM Portal</div>
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="post" class="login-form">
+      <div class="form-field">
+        <label>Username</label>
+        <input name="username" placeholder="Enter your username">
+      </div>
+      <div class="form-field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password">
+      </div>
+      <div style="margin-top:12px; display:flex; gap:8px; align-items:center">
+        <button type="submit" class="btn primary">Login</button>
+        <a href="/" class="btn ghost">Back</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

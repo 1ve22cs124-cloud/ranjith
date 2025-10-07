@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard — VM Portal{% endblock %}
+{% block content %}
+<div class="container">
+  <div style="display:flex; justify-content:space-between; align-items:center">
+    <h1 style="margin:0">VM Launcher</h1>
+    <div>
+      Logged in as <strong>{{ user }}</strong>
+      <a href="/logout" style="margin-left:12px">Logout</a>
+      {% if is_admin %} <a href="/admin" style="margin-left:12px">Admin</a>{% endif %}
+    </div>
+  </div>
+
+  <div id="vms" style="margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px"></div>
+</div>
+<script src="/static/app.js"></script>
+{% endblock %}
